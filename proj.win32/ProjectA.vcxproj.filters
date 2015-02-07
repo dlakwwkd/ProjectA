@@ -19,11 +19,20 @@
     <Filter Include="Main">
       <UniqueIdentifier>{806de9a9-fcee-470f-b927-836513096ab5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\PhysicsWorld">
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{8a76b4d5-ee84-425b-a5cf-d777da439a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\PhysicsLayer">
       <UniqueIdentifier>{4e8e135b-5797-4f31-85ff-bce8aa5554fe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\PhysicsWorld\Object">
-      <UniqueIdentifier>{8a76b4d5-ee84-425b-a5cf-d777da439a4d}</UniqueIdentifier>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{ce8048e9-4868-4e5c-bb53-285f5ed1380b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Trigger">
+      <UniqueIdentifier>{a2fecc1b-0915-495a-b932-51a43ae51b0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameManager">
+      <UniqueIdentifier>{689def0f-501c-4a4b-85e9-0cb56cddfb13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,22 +55,31 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MapLayer.cpp">
-      <Filter>Game\PhysicsWorld</Filter>
+      <Filter>Game\PhysicsLayer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ObjectLayer.cpp">
-      <Filter>Game\PhysicsWorld</Filter>
+      <Filter>Game\PhysicsLayer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Object.cpp">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Unit.cpp">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Structure.cpp">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Tower.cpp">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Trigger.cpp">
+      <Filter>Game\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameManager.cpp">
+      <Filter>Game\GameManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,22 +105,31 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MapLayer.h">
-      <Filter>Game\PhysicsWorld</Filter>
+      <Filter>Game\PhysicsLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ObjectLayer.h">
-      <Filter>Game\PhysicsWorld</Filter>
+      <Filter>Game\PhysicsLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Object.h">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Unit.h">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Structure.h">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Tower.h">
-      <Filter>Game\PhysicsWorld\Object</Filter>
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Trigger.h">
+      <Filter>Game\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameManager.h">
+      <Filter>Game\GameManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,11 @@ bool PhysicsLayer::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event *event)
     return true;
 }
 
+void PhysicsLayer::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event *event)
+{
+
+}
+
 void PhysicsLayer::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event *event)
 {
     auto location = touch->getLocation();

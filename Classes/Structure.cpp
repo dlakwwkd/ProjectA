@@ -4,7 +4,7 @@ USING_NS_CC;
 
 bool Structure::init()
 {
-    if (!Sprite::init())
+    if (!custom::Object::init())
     {
         return false;
     }

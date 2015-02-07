@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+class Player;
+
 namespace custom
 {
     class Object : public cocos2d::Sprite
@@ -11,11 +13,15 @@ namespace custom
         virtual bool init();
         CREATE_FUNC(Object);
 
-        void SetDef(const std::string& filename);
+        void    SetOwner(Player* owner){ m_Owner = owner; }
+        Player* GetOwner(){ return m_Owner; }
+
+        void    SetDef(const std::string& filename);
 
     protected:
-        int m_MaxHp;
-        int m_CurHp;
+        Player* m_Owner = nullptr;
+        int     m_MaxHp;
+        int     m_CurHp;
     };
 }
 

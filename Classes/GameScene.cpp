@@ -1,6 +1,9 @@
 ﻿#include "GameScene.h"
 #include "PhysicsLayer.h"
 #include "UILayer.h"
+#include "GameManager.h"
+#include "Trigger.h"
+#include "Player.h"
 #include "TextDefine.h"
 
 USING_NS_CC;
@@ -28,6 +31,12 @@ bool GameScene::init()
     {
         return false;
     }
+    GameManager::getInstance()->InitGame();
     return true;
 }
 
+GameScene::~GameScene()
+{
+    GameManager::destroyInstance();
+    Trigger::destroyInstance();
+}
