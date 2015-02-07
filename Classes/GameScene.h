@@ -3,8 +3,6 @@
 
 #include "cocos2d.h"
 
-class Player;
-
 class GameScene : public cocos2d::Layer
 {
 public:

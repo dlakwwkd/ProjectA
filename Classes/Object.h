@@ -13,8 +13,8 @@ namespace custom
         virtual bool init();
         CREATE_FUNC(Object);
 
-        void    SetOwner(Player* owner){ m_Owner = owner; }
-        Player* GetOwner(){ return m_Owner; }
+        inline void    SetOwner(Player* owner){ m_Owner = owner; }
+        inline Player* GetOwner() const { return m_Owner; }
 
         void    SetDef(const std::string& filename);
 

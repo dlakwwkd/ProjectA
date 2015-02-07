@@ -3,7 +3,6 @@
 #include "UILayer.h"
 #include "GameManager.h"
 #include "Trigger.h"
-#include "Player.h"
 #include "TextDefine.h"
 
 USING_NS_CC;

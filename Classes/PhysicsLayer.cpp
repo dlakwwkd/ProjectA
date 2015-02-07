@@ -18,6 +18,7 @@ bool PhysicsLayer::init()
 
 	auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = CC_CALLBACK_2(PhysicsLayer::onTouchBegan, this);
+    touchListener->onTouchMoved = CC_CALLBACK_2(PhysicsLayer::onTouchMoved, this);
     touchListener->onTouchEnded = CC_CALLBACK_2(PhysicsLayer::onTouchEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 

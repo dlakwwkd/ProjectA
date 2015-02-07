@@ -20,10 +20,10 @@ public:
     virtual bool init();
     CREATE_FUNC(Player);
 
-    void SetType(Type type){ m_Type = type; }
-    void SetTeam(Team team){ m_Team = team; }
-    Type GetType(){ return m_Type; }
-    Team GetTeam(){ return m_Team; }
+    inline void SetType(Type type){ m_Type = type; }
+    inline void SetTeam(Team team){ m_Team = team; }
+    inline Type GetType() const { return m_Type; }
+    inline Team GetTeam() const { return m_Team; }
 
 protected:
     Type m_Type = PT_COMPUTER;

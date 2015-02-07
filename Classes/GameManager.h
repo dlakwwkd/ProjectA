@@ -15,8 +15,8 @@ public:
     virtual ~GameManager();
 
 public:
-    Player* GetPlayer(){ return m_Player; }
-    Player* GetEnemy(){ return m_Enemy; }
+    inline Player* GetPlayer() const { return m_Player; }
+    inline Player* GetEnemy() const { return m_Enemy; }
 
     void InitGame();
 

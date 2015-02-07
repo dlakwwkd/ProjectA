@@ -9,14 +9,14 @@ public:
 	virtual bool init();
 	CREATE_FUNC(PhysicsLayer);
 
-    cocos2d::PhysicsWorld*	getPhyWorld(){ return m_World; }
-    void			        setPhyWorld(cocos2d::PhysicsWorld* world){ m_World = world; }
+    inline cocos2d::PhysicsWorld*   getPhyWorld() const { return m_World; }
+    inline void			            setPhyWorld(cocos2d::PhysicsWorld* world){ m_World = world; }
 
-    void			        tick(float dt);
-
-    virtual bool	        onTouchBegan(cocos2d::Touch* touch, cocos2d::Event *unused_event);
-    virtual void	        onTouchMoved(cocos2d::Touch* touch, cocos2d::Event *unused_event);
-    virtual void	        onTouchEnded(cocos2d::Touch* touch, cocos2d::Event *unused_event);
+    void		 tick(float dt);
+                 
+    virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event *unused_event);
+    virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event *unused_event);
+    virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event *unused_event);
 
 protected:
     cocos2d::PhysicsWorld*	m_World;

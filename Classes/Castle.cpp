@@ -1,20 +1,21 @@
-﻿#include "Object.h"
+﻿#include "Castle.h"
 
 USING_NS_CC;
 
-bool custom::Object::init()
+bool Castle::init()
 {
-    if (!Sprite::init())
+    if (!custom::Object::init())
     {
         return false;
     }
     return true;
 }
 
-void custom::Object::SetDef(const std::string& filename)
+void Castle::SetDef(const std::string& filename)
 {
     setTexture(filename);
     auto body = PhysicsBody::createBox(_contentSize);
     body->setRotationEnable(false);
+    body->setDynamic(false);
     setPhysicsBody(body);
 }
