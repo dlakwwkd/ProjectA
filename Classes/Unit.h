@@ -10,10 +10,10 @@ public:
     CREATE_FUNC(Unit);
 
 protected:
-    int m_Damage;
-    int m_AttackRange;
-    int m_AttackSpeed;
-    int m_MoveSpeed;
+    int m_Damage        = 0;
+    int m_AttackRange   = 0;
+    int m_AttackSpeed   = 0;
+    int m_MoveSpeed     = 0;
 };
 
 #endif  // __UNIT_H__

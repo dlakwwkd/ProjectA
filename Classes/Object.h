@@ -20,8 +20,8 @@ namespace custom
 
     protected:
         Player* m_Owner = nullptr;
-        int     m_MaxHp;
-        int     m_CurHp;
+        int     m_MaxHp = 0;
+        int     m_CurHp = 0;
     };
 }
 

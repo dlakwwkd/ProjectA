@@ -10,9 +10,9 @@ public:
     CREATE_FUNC(Tower);
 
 protected:
-    int m_Damage;
-    int m_AttackRange;
-    int m_AttackSpeed;
+    int m_Damage        = 0;
+    int m_AttackRange   = 0;
+    int m_AttackSpeed   = 0;
 };
 
 #endif  // __TOWER_H__
