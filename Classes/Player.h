@@ -3,9 +3,6 @@
 
 #include "cocos2d.h"
 #include "Object.h"
-#include "Unit.h"
-#include "Tower.h"
-#include "Structure.h"
 
 typedef custom::Object::DefInfo DefInfo;
 
@@ -44,7 +41,6 @@ public:
 public:
     virtual bool init();
     CREATE_FUNC(Player);
-    virtual ~Player();
 
     inline void             SetType(const Type& type){ m_Type = type; }
     inline void             SetTeam(const Team& team){ m_Team = team; }

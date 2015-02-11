@@ -6,7 +6,3 @@ bool Player::init()
 {
     return true;
 }
-
-Player::~Player()
-{
-}

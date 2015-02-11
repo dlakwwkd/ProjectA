@@ -18,8 +18,8 @@ bool UILayer::init()
     
 
     auto closeItem = MenuItemImage::create(
-        "CloseNormal.png",
-        "CloseSelected.png",
+        "Image/CloseNormal.png",
+        "Image/CloseSelected.png",
         CC_CALLBACK_1(UILayer::OutGame, this));
     closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2, origin.y + closeItem->getContentSize().height / 2));
 

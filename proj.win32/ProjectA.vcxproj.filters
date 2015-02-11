@@ -84,6 +84,9 @@
     <ClCompile Include="..\Classes\Castle.cpp">
       <Filter>Game\Object</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\TouchLayer.cpp">
+      <Filter>Game\PhysicsLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Castle.h">
       <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TouchLayer.h">
+      <Filter>Game\PhysicsLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

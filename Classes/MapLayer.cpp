@@ -1,4 +1,5 @@
 ﻿#include "MapLayer.h"
+#include "TextDefine.h"
 
 USING_NS_CC;
 
@@ -8,16 +9,17 @@ bool MapLayer::init()
     {
         return false;
     }
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto sprite = Sprite::create("Image/Background/background_def.png");
+    sprite->setAnchorPoint(Vec2::ZERO);
+    this->addChild(sprite, 0, SPRITE_MAP_IMAGE);
 
-    auto sprite = Sprite::create("HelloWorld.png");
-    sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-    this->addChild(sprite, 0);
+    auto mapSize = sprite->getContentSize();
+    mapSize.height *= 5.0f/6.0f;
+    m_GroundHeight = mapSize.height / 5;
 
-    auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+    auto body = PhysicsBody::createEdgeBox(mapSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
     auto edgeNode = Node::create();
-    edgeNode->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+    edgeNode->setPosition(Point(mapSize.width / 2, mapSize.height / 2 + m_GroundHeight));
     edgeNode->setPhysicsBody(body);
     this->addChild(edgeNode);
 

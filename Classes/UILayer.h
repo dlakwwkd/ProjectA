@@ -10,7 +10,6 @@ public:
     CREATE_FUNC(UILayer);
 
     void OutGame(cocos2d::Ref* sender);
-
 };
 
 #endif  // __UI_LAYER_H__

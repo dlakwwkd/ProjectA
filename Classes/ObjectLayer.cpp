@@ -14,7 +14,7 @@ bool ObjectLayer::init()
     auto player = GameManager::getInstance()->GetPlayer();
 
     DefInfo info;
-    info.m_ImageName = "CloseNormal.png";
+    info.m_ImageName = "Image/CloseNormal.png";
     player->PushDefInfo(Player::UNIT_A, info);
 
     this->schedule(schedule_selector(ObjectLayer::tick), 1.0f);

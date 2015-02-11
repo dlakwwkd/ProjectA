@@ -148,6 +148,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\PhysicsLayer.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\Structure.cpp" />
+    <ClCompile Include="..\Classes\TouchLayer.cpp" />
     <ClCompile Include="..\Classes\Tower.cpp" />
     <ClCompile Include="..\Classes\Trigger.cpp" />
     <ClCompile Include="..\Classes\UILayer.cpp" />
@@ -167,6 +168,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Structure.h" />
     <ClInclude Include="..\Classes\TextDefine.h" />
     <ClInclude Include="..\Classes\MainScene.h" />
+    <ClInclude Include="..\Classes\TouchLayer.h" />
     <ClInclude Include="..\Classes\Tower.h" />
     <ClInclude Include="..\Classes\Trigger.h" />
     <ClInclude Include="..\Classes\UILayer.h" />

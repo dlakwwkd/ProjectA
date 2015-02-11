@@ -9,7 +9,10 @@ public:
     virtual bool init();
     CREATE_FUNC(MapLayer);
 
+    inline float GetGroundHeight() const { return m_GroundHeight; }
 
+private:
+    float m_GroundHeight = 0;
 };
 
 #endif  // __MAP_LAYER_H__

@@ -12,15 +12,10 @@ public:
     inline cocos2d::PhysicsWorld*   getPhyWorld() const { return m_World; }
     inline void			            setPhyWorld(cocos2d::PhysicsWorld* world){ m_World = world; }
 
-    void		 tick(float dt);
-                 
-    virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event *unused_event);
-    virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event *unused_event);
-    virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event *unused_event);
+    void tick(float dt);
 
-protected:
+private:
     cocos2d::PhysicsWorld*	m_World;
-
 };
 
 #endif  // __PHYSICS_LAYER_H__

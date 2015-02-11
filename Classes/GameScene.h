@@ -10,7 +10,7 @@ public:
     virtual bool init();
     CREATE_FUNC(GameScene);
 
-protected:
+private:
     virtual ~GameScene();
 };
 
