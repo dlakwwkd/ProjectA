@@ -9,6 +9,8 @@ public:
     virtual bool init();
     CREATE_FUNC(Structure);
 
+    virtual void SetDef(const std::string& filename);
+    virtual void SetDef(const DefInfo& info);
 };
 
 #endif  // __STRUCTURE_H__

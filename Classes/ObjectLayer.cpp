@@ -11,16 +11,11 @@ bool ObjectLayer::init()
 	{
 		return false;
     }
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto player = GameManager::getInstance()->GetPlayer();
 
-    auto unit = Unit::create();
-    unit->SetDef("CloseNormal.png");
-    unit->SetOwner(player);
-    player->SetUnit(Player::UNIT_A, unit);
-    unit->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - unit->getContentSize().height));
-    this->addChild(unit);
+    DefInfo info;
+    info.m_ImageName = "CloseNormal.png";
+    player->PushDefInfo(Player::UNIT_A, info);
 
     this->schedule(schedule_selector(ObjectLayer::tick), 1.0f);
 	return true;
@@ -28,6 +23,12 @@ bool ObjectLayer::init()
 
 void ObjectLayer::tick(float dt)
 {
-    auto unit = GameManager::getInstance()->GetPlayer()->GetUnit(Player::UNIT_A);
-    unit->getPhysicsBody()->setVelocity(Vec2(20.0f, 100.0f));
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto player = GameManager::getInstance()->GetPlayer();
+
+    auto unit = Unit::create();
+    unit->SetDef(player->GetDefInfo(Player::UNIT_A));
+    unit->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - unit->getContentSize().height));
+    this->addChild(unit);
 }

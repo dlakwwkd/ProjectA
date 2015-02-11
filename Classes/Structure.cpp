@@ -10,3 +10,13 @@ bool Structure::init()
     }
     return true;
 }
+
+void Structure::SetDef(const std::string& filename)
+{
+    Object::SetDef(filename);
+}
+
+void Structure::SetDef(const DefInfo& info)
+{
+    Object::SetDef(info);
+}

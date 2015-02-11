@@ -9,11 +9,8 @@ public:
     virtual bool init();
     CREATE_FUNC(Unit);
 
-protected:
-    int m_Damage        = 0;
-    int m_AttackRange   = 0;
-    int m_AttackSpeed   = 0;
-    int m_MoveSpeed     = 0;
+    virtual void SetDef(const std::string& filename);
+    virtual void SetDef(const DefInfo& info);
 };
 
 #endif  // __UNIT_H__

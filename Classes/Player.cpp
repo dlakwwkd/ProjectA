@@ -9,7 +9,4 @@ bool Player::init()
 
 Player::~Player()
 {
-    m_UnitList.clear();
-    m_TowerList.clear();
-    m_StructureList.clear();
 }

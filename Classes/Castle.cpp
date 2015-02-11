@@ -13,7 +13,16 @@ bool Castle::init()
 
 void Castle::SetDef(const std::string& filename)
 {
-    setTexture(filename);
+    DefInfo info;
+    info.m_ImageName = filename;
+    info.m_MaxHp = info.m_CurHp = 1000;
+    SetDef(info);
+}
+
+void Castle::SetDef(const DefInfo& info)
+{
+    SetDefInfo(info);
+    setTexture(m_DefInfo.m_ImageName);
     auto body = PhysicsBody::createBox(_contentSize);
     body->setRotationEnable(false);
     body->setDynamic(false);
