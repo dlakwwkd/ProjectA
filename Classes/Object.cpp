@@ -15,7 +15,7 @@ void custom::Object::SetDef(const std::string& filename)
 {
     DefInfo info;
     info.m_ImageName = filename;
-    info.m_MaxHp = info.m_CurHp = 100;
+    info.m_CurHp = info.m_MaxHp = 100;
     SetDef(info);
 }
 

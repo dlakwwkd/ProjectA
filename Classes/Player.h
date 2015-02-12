@@ -47,7 +47,7 @@ public:
     inline Type             GetType() const { return m_Type; }
     inline Team             GetTeam() const { return m_Team; }
 
-    inline void             PushDefInfo(const DefInfoList& key, const DefInfo& info){ m_DefInfoList[key] = info; }
+    inline void             PushDefInfo(const DefInfoList& key, const DefInfo& info){ m_DefInfoList.insert(std::make_pair(key, info)); }
     inline const DefInfo&   GetDefInfo(const DefInfoList& key) const
     {
         auto iter = m_DefInfoList.find(key); CCASSERT(iter != m_DefInfoList.end(), "GetDefInfo() failed! : Value is not valid");

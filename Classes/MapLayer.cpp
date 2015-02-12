@@ -20,6 +20,7 @@ bool MapLayer::init()
     auto body = PhysicsBody::createEdgeBox(mapSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
     auto edgeNode = Node::create();
     edgeNode->setPosition(Point(mapSize.width / 2, mapSize.height / 2 + m_GroundHeight));
+    edgeNode->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     edgeNode->setPhysicsBody(body);
     this->addChild(edgeNode);
 

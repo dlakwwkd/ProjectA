@@ -16,8 +16,6 @@ bool GameManager::init()
 
 GameManager::~GameManager()
 {
-    CC_SAFE_RELEASE(m_Player);
-    CC_SAFE_RELEASE(m_Enemy);
 }
 
 GameManager* GameManager::getInstance()
@@ -34,22 +32,4 @@ GameManager* GameManager::getInstance()
 void GameManager::destroyInstance()
 {
     CC_SAFE_RELEASE_NULL(s_GameManager);
-}
-
-
-void GameManager::InitGame()
-{
-    CC_SAFE_RELEASE(m_Player);
-    CC_SAFE_RELEASE(m_Enemy);
-
-    m_Player = Player::create();
-    m_Player->SetType(Player::PT_HUMAN);
-    m_Player->SetTeam(Player::TEAM_A);
-
-    m_Enemy = Player::create();
-    m_Enemy->SetType(Player::PT_COMPUTER);
-    m_Enemy->SetTeam(Player::TEAM_B);
-
-    CC_SAFE_RETAIN(m_Player);
-    CC_SAFE_RETAIN(m_Enemy);
 }

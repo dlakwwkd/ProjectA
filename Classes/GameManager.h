@@ -10,8 +10,6 @@
 #include "TouchLayer.h"
 #include "TextDefine.h"
 
-class Player;
-
 class GameManager : public cocos2d::Ref
 {
 public:
@@ -29,18 +27,18 @@ public:
     inline MapLayer*        GetMapLayer() const     { return static_cast<MapLayer*>     (cocos2d::Director::getInstance()->getRunningScene()->getChildByName(GAME_SCENE)->getChildByName(PHYSICS_LAYER)->getChildByName(MAP_LAYER)); }
     inline TouchLayer*      GetTouchLayer() const   { return static_cast<TouchLayer*>   (cocos2d::Director::getInstance()->getRunningScene()->getChildByName(GAME_SCENE)->getChildByName(PHYSICS_LAYER)->getChildByName(TOUCH_LAYER)); }
 
-    inline Player*          GetPlayer() const { return m_Player; }
-    inline Player*          GetEnemy() const { return m_Enemy; }
-
-    void InitGame();
-
+    template <typename T, typename F, typename... Args>
+    void CallFuncAfter(float delay, T instance, F memfunc, Args&&... args) const
+    {
+        static_assert(std::is_convertible<T, cocos2d::Node*>::value, "CallFuncAfter() failed! : instance is not valid");
+        auto callFunc = cocos2d::CallFunc::create(std::bind(memfunc, instance, std::forward<Args>(args)...));
+        auto delayTime = cocos2d::DelayTime::create(delay);
+        auto sequence = cocos2d::Sequence::createWithTwoActions(delayTime, callFunc);
+        instance->runAction(sequence);
+    }
 private:
     GameManager();
     static GameManager* s_GameManager;
-
-private:
-    Player* m_Player = nullptr;
-    Player* m_Enemy = nullptr;
 };
 
 #endif  // __GAME_MANAGER_H__
