@@ -2,8 +2,7 @@
 #define __OBJECT_LAYER_H__
 
 #include "cocos2d.h"
-
-class Player;
+#include "Player.h"
 
 class ObjectLayer : public cocos2d::Layer
 {
@@ -14,6 +13,7 @@ public:
     void tick(float dt);
 
     void CreateCastle(const cocos2d::Vec2& pos, Player* owner);
+    void CreateUnit(const cocos2d::Vec2& pos, Player* owner, Player::DefInfoList type);
 };
 
 #endif  // __OBJECT_LAYER_H__

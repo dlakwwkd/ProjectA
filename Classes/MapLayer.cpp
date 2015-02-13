@@ -9,7 +9,7 @@ bool MapLayer::init()
     {
         return false;
     }
-    auto sprite = Sprite::create("Image/Background/background_def.png");
+    auto sprite = Sprite::create(PATH_IMAGE_MAP_BG);
     sprite->setAnchorPoint(Vec2::ZERO);
     this->addChild(sprite, 0, SPRITE_MAP_IMAGE);
 

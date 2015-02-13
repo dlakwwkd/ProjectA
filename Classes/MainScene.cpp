@@ -25,7 +25,7 @@ bool MainScene::init()
     label->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height - label->getContentSize().height));
     this->addChild(label, 1);
 
-    auto sprite = Sprite::create("Image/HelloWorld.png");
+    auto sprite = Sprite::create(PATH_IMAGE_MAIN_BG);
     sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     sprite->setOpacity(100);
     this->addChild(sprite, 0);
@@ -39,8 +39,8 @@ bool MainScene::init()
 
 
     auto closeItem = MenuItemImage::create(
-        "Image/CloseNormal.png",
-        "Image/CloseSelected.png",
+        PATH_IMAGE_CLOSE_BUTTON,
+        PATH_IMAGE_CLOSE_BUTTON_PUSH,
         CC_CALLBACK_1(MainScene::CloseApp, this));
     closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2, origin.y + closeItem->getContentSize().height / 2));
 

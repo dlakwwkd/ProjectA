@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Object.h"
 
+class Castle;
 typedef custom::Object::DefInfo DefInfo;
 
 class Player : public cocos2d::Ref
@@ -20,6 +21,13 @@ public:
         TEAM_NONE,
         TEAM_A,
         TEAM_B,
+    };
+    enum State
+    {
+        STATE_NONE,
+        STATE_PREPARE,
+        STATE_ATTACK,
+        STATE_DEFENCE,
     };
     enum DefInfoList
     {
@@ -42,10 +50,15 @@ public:
     virtual bool init();
     CREATE_FUNC(Player);
 
+    inline void             SetCastle(Castle* castle){ m_MyCastle = castle; }
     inline void             SetType(const Type& type){ m_Type = type; }
     inline void             SetTeam(const Team& team){ m_Team = team; }
-    inline Type             GetType() const { return m_Type; }
-    inline Team             GetTeam() const { return m_Team; }
+    inline void             SetState(const State& state){ m_State = state; }
+
+    inline Castle*          GetCastle() const { return m_MyCastle; }
+    inline const Type&      GetType() const { return m_Type; }
+    inline const Team&      GetTeam() const { return m_Team; }
+    inline const State&     GetState() const { return m_State; }
 
     inline void             PushDefInfo(const DefInfoList& key, const DefInfo& info){ m_DefInfoList.insert(std::make_pair(key, info)); }
     inline const DefInfo&   GetDefInfo(const DefInfoList& key) const
@@ -54,9 +67,18 @@ public:
         return iter->second;
     }
 
+    void TurnStartAC();
+    void TurnStartAA();
+    void TurnStartBC();
+    void TurnStartBA();
+
 protected:
-    Type m_Type = PT_NONE;
-    Team m_Team = TEAM_NONE;
+    Castle* m_MyCastle = nullptr;
+    Type    m_Type = PT_NONE;
+    Team    m_Team = TEAM_NONE;
+    State   m_State = STATE_NONE;
+    int     m_Gold = 0;
+    int     m_Income = 0;
 
     std::map<DefInfoList, DefInfo> m_DefInfoList;
 };

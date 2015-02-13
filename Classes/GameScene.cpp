@@ -32,8 +32,8 @@ bool GameScene::init()
         return false;
     }
     InitPlayers();
-    GameManager::getInstance()->CallFuncAfter(0.1f, this, &GameScene::InitGameState);
-
+    InitDefInfoList();
+    GameManager::getInstance()->CallFuncAfter(this, &GameScene::InitGameState);
     return true;
 }
 
@@ -50,22 +50,27 @@ void GameScene::InitPlayers()
     m_Player = Player::create();
     m_Player->SetType(Player::PT_HUMAN);
     m_Player->SetTeam(Player::TEAM_A);
+    m_Player->SetState(Player::STATE_PREPARE);
 
     m_Enemy = Player::create();
     m_Enemy->SetType(Player::PT_COMPUTER);
     m_Enemy->SetTeam(Player::TEAM_B);
+    m_Enemy->SetState(Player::STATE_DEFENCE);
 
     CC_SAFE_RETAIN(m_Player);
     CC_SAFE_RETAIN(m_Enemy);
-
-    InitDefInfoList();
 }
 
 void GameScene::InitDefInfoList()
 {
     DefInfo info;
-    info.m_ImageName = "Image/CloseNormal.png";
+    info.m_ImageName = PATH_IMAGE_UNIT_A;
     m_Player->PushDefInfo(Player::UNIT_A, info);
+    m_Enemy->PushDefInfo(Player::UNIT_A, info);
+
+    info.m_ImageName = PATH_IMAGE_UNIT_B;
+    m_Player->PushDefInfo(Player::UNIT_B, info);
+    m_Enemy->PushDefInfo(Player::UNIT_B, info);
 }
 
 
@@ -75,7 +80,11 @@ void GameScene::InitGameState()
     auto mapLayer = GameManager::getInstance()->GetMapLayer();
     auto mapImage = static_cast<Sprite*>(mapLayer->getChildByName(SPRITE_MAP_IMAGE));
     auto mapSize = mapImage->getContentSize();
-    auto createPos = Vec2(mapSize.width / 8, mapLayer->GetGroundHeight());
+    auto createPos1 = Vec2(mapSize.width / 8, mapLayer->GetGroundHeight());
+    auto createPos2 = Vec2(mapSize.width * 7 / 8, mapLayer->GetGroundHeight());
 
-    objLayer->CreateCastle(createPos, m_Player);
+    objLayer->CreateCastle(createPos1, m_Player);
+    objLayer->CreateCastle(createPos2, m_Enemy);
+
+    Trigger::getInstance()->GameStart();
 }
