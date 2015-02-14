@@ -12,6 +12,8 @@ public:
 
     void tick(float dt);
 
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
+
     void CreateCastle(const cocos2d::Vec2& pos, Player* owner);
     void CreateUnit(const cocos2d::Vec2& pos, Player* owner, Player::DefInfoList type);
 };

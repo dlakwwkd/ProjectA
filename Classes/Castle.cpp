@@ -26,6 +26,7 @@ void Castle::SetDef(const DefInfo& info)
     Object::SetDef(info);
     getPhysicsBody()->setDynamic(false);
     getPhysicsBody()->setCategoryBitmask(OBJ_CASTLE);
+    getPhysicsBody()->setContactTestBitmask(OBJ_UNIT);
 }
 
 void Castle::Damaged(int damage)

@@ -20,6 +20,7 @@ void Structure::SetDef(const DefInfo& info)
 {
     Object::SetDef(info);
     getPhysicsBody()->setCategoryBitmask(OBJ_STRUCTURE);
+    getPhysicsBody()->setContactTestBitmask(OBJ_UNIT);
 }
 
 void Structure::Damaged(int damage)

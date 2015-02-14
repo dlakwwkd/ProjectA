@@ -28,6 +28,7 @@ void Unit::SetDef(const DefInfo& info)
     Object::SetDef(info);
     getPhysicsBody()->setCategoryBitmask(OBJ_UNIT);
     getPhysicsBody()->setCollisionBitmask(OBJ_ALL - OBJ_UNIT);
+    getPhysicsBody()->setContactTestBitmask(OBJ_CASTLE + OBJ_TOWER + OBJ_STRUCTURE);
 }
 
 void Unit::Damaged(int damage)

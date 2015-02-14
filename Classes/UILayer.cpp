@@ -59,7 +59,7 @@ bool UILayer::init()
 }
 
 
-void UILayer::CreateUnit(cocos2d::Ref* sender, Player::DefInfoList type)
+void UILayer::CreateUnit(Ref* sender, Player::DefInfoList type)
 {
     auto player = GameManager::getInstance()->GetGameScene()->GetPlayer();
     auto enemy = GameManager::getInstance()->GetGameScene()->GetEnemy();
@@ -73,7 +73,7 @@ void UILayer::CreateUnit(cocos2d::Ref* sender, Player::DefInfoList type)
     }
 }
 
-void UILayer::TurnOver(cocos2d::Ref* sender)
+void UILayer::TurnOver(Ref* sender)
 {
     Trigger::getInstance()->TurnChange();
     auto label = static_cast<Label*>(this->getChildByName(LABEL_TURN));
@@ -91,7 +91,7 @@ void UILayer::TurnOver(cocos2d::Ref* sender)
     }
 }
 
-void UILayer::OutGame(cocos2d::Ref* sender)
+void UILayer::OutGame(Ref* sender)
 {
     Director::getInstance()->popScene();
 }

@@ -26,6 +26,7 @@ void Tower::SetDef(const DefInfo& info)
 {
     Object::SetDef(info);
     getPhysicsBody()->setCategoryBitmask(OBJ_TOWER);
+    getPhysicsBody()->setContactTestBitmask(OBJ_UNIT);
 }
 
 void Tower::Damaged(int damage)
