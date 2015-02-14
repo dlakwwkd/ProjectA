@@ -5,6 +5,16 @@
 
 class Player;
 
+enum ObjectType
+{
+    OBJ_ALL         = -1,   // 0xFFFFFFFF
+    OBJ_CASTLE      = 0x01, // 00001
+    OBJ_UNIT        = 0x02, // 00010
+    OBJ_TOWER       = 0x04, // 00100
+    OBJ_STRUCTURE   = 0x08, // 01000
+    OBJ_MISSILE     = 0x10, // 10000
+};
+
 namespace custom
 {
     class Object : public cocos2d::Sprite

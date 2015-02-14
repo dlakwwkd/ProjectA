@@ -25,4 +25,5 @@ void Tower::SetDef(const std::string& filename)
 void Tower::SetDef(const DefInfo& info)
 {
     Object::SetDef(info);
+    getPhysicsBody()->setCategoryBitmask(OBJ_TOWER);
 }

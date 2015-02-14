@@ -22,12 +22,9 @@ void Castle::SetDef(const std::string& filename)
 
 void Castle::SetDef(const DefInfo& info)
 {
-    SetDefInfo(info);
-    setTexture(m_DefInfo.m_ImageName);
-    auto body = PhysicsBody::createBox(_contentSize);
-    body->setRotationEnable(false);
-    body->setDynamic(false);
-    setPhysicsBody(body);
+    Object::SetDef(info);
+    getPhysicsBody()->setDynamic(false);
+    getPhysicsBody()->setCategoryBitmask(OBJ_CASTLE);
 }
 
 void Castle::CreateUnit()

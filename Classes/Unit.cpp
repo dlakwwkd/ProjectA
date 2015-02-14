@@ -26,5 +26,7 @@ void Unit::SetDef(const std::string& filename)
 void Unit::SetDef(const DefInfo& info)
 {
     Object::SetDef(info);
+    getPhysicsBody()->setCategoryBitmask(OBJ_UNIT);
+    getPhysicsBody()->setCollisionBitmask(OBJ_ALL - OBJ_UNIT);
 }
 
