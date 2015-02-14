@@ -11,6 +11,8 @@ public:
 
     virtual void SetDef(const std::string& filename);
     virtual void SetDef(const DefInfo& info);
+    virtual void Damaged(int damage);
+    virtual void Death();
 };
 
 #endif  // __TOWER_H__

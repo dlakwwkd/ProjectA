@@ -65,6 +65,11 @@ void GameScene::InitDefInfoList()
 {
     DefInfo info;
     info.m_ImageName = PATH_IMAGE_UNIT_A;
+    info.m_CurHp = info.m_MaxHp = 100;
+    info.m_Damage = 10;
+    info.m_AttackRange = 100.0f;
+    info.m_AttackSpeed = 1.0f;
+    info.m_MoveSpeed = 200.0f;
     m_Player->PushDefInfo(Player::UNIT_A, info);
     m_Enemy->PushDefInfo(Player::UNIT_A, info);
 

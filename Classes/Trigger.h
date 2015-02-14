@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+class Player;
+
 class Trigger : public cocos2d::Ref
 {
 public:
@@ -25,6 +27,7 @@ public:
     inline const Turn& GetNowTurn() const { return m_NowTurn; }
 
     void GameStart();
+    void GameOver(Player* losePlayer);
     void TurnChange();
 
 private:

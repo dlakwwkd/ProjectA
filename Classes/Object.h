@@ -5,21 +5,20 @@
 
 class Player;
 
-enum ObjectType
-{
-    OBJ_ALL         = -1,   // 0xFFFFFFFF
-    OBJ_CASTLE      = 0x01, // 00001
-    OBJ_UNIT        = 0x02, // 00010
-    OBJ_TOWER       = 0x04, // 00100
-    OBJ_STRUCTURE   = 0x08, // 01000
-    OBJ_MISSILE     = 0x10, // 10000
-};
-
 namespace custom
 {
     class Object : public cocos2d::Sprite
     {
     public:
+        enum Type   // for Bitmask
+        {
+            OBJ_ALL         = -1,   // 0xFFFFFFFF
+            OBJ_CASTLE      = 0x01, // 00001
+            OBJ_UNIT        = 0x02, // 00010
+            OBJ_TOWER       = 0x04, // 00100
+            OBJ_STRUCTURE   = 0x08, // 01000
+            OBJ_MISSILE     = 0x10, // 10000
+        };
         struct DefInfo
         {
             std::string m_ImageName = "";
@@ -40,12 +39,18 @@ namespace custom
         inline void             SetDefInfo(const DefInfo& info){ m_DefInfo = info; }
         inline const DefInfo&   GetDefInfo() const { return m_DefInfo; }
 
+        inline bool             IsAlive() const { return m_Alive; }
+
         virtual void SetDef(const std::string& filename);
         virtual void SetDef(const DefInfo& info);
+        virtual void Damaged(int damage);
+        virtual void Death();
+
 
     protected:
         Player* m_Owner = nullptr;
         DefInfo m_DefInfo;
+        bool    m_Alive = true;
     };
 }
 

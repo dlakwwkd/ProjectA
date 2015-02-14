@@ -21,3 +21,27 @@ void Structure::SetDef(const DefInfo& info)
     Object::SetDef(info);
     getPhysicsBody()->setCategoryBitmask(OBJ_STRUCTURE);
 }
+
+void Structure::Damaged(int damage)
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Damaged(damage);
+    /*
+        todo : 피격 이펙트
+    */
+}
+
+void Structure::Death()
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Death();
+    /*
+        todo : 구조물 파괴 모션 재생
+    */
+}

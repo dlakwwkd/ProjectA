@@ -30,3 +30,26 @@ void Unit::SetDef(const DefInfo& info)
     getPhysicsBody()->setCollisionBitmask(OBJ_ALL - OBJ_UNIT);
 }
 
+void Unit::Damaged(int damage)
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Damaged(damage);
+    /*
+        todo : 피격 이펙트
+    */
+}
+
+void Unit::Death()
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Death();
+    /*
+        todo : 유닛 사망 모션 재생
+    */
+}

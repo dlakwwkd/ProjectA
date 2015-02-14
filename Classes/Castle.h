@@ -12,6 +12,8 @@ public:
 
     virtual void    SetDef(const std::string& filename);
     virtual void    SetDef(const DefInfo& info);
+    virtual void    Damaged(int damage);
+    virtual void    Death();
 
     inline void     PushUnit(const Player::DefInfoList& type) { m_UnitQueue.push(type); }
     void            CreateUnit();

@@ -1,5 +1,6 @@
 ﻿#include "Castle.h"
 #include "GameManager.h"
+#include "Trigger.h"
 
 USING_NS_CC;
 
@@ -25,6 +26,31 @@ void Castle::SetDef(const DefInfo& info)
     Object::SetDef(info);
     getPhysicsBody()->setDynamic(false);
     getPhysicsBody()->setCategoryBitmask(OBJ_CASTLE);
+}
+
+void Castle::Damaged(int damage)
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Damaged(damage);
+    /*
+        todo : 피격 이펙트
+    */
+}
+
+void Castle::Death()
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Death();
+    /*
+        todo : 캐슬 폭파 모션 재생
+    */
+    Trigger::getInstance()->GameOver(m_Owner);
 }
 
 void Castle::CreateUnit()

@@ -27,3 +27,27 @@ void Tower::SetDef(const DefInfo& info)
     Object::SetDef(info);
     getPhysicsBody()->setCategoryBitmask(OBJ_TOWER);
 }
+
+void Tower::Damaged(int damage)
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Damaged(damage);
+    /*
+        todo : 피격 이펙트
+    */
+}
+
+void Tower::Death()
+{
+    if (!m_Alive)
+    {
+        return;
+    }
+    Object::Death();
+    /*
+        todo : 타워 파괴 모션 재생
+    */
+}

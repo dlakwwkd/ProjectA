@@ -41,6 +41,13 @@ void Trigger::GameStart()
     TurnStartAC();
 }
 
+void Trigger::GameOver(Player* losePlayer)
+{
+    /*
+        todo: 게임결과씬 Push
+    */
+}
+
 void Trigger::TurnChange()
 {
     switch (m_NowTurn)
