@@ -18,6 +18,7 @@ void Castle::SetDef(const std::string& filename)
     DefInfo info;
     info.m_ImageName = filename;
     info.m_CurHp = info.m_MaxHp = 1000;
+    info.m_Damage = 100;
     SetDef(info);
 }
 
@@ -56,7 +57,6 @@ void Castle::Death()
 
 void Castle::CreateUnit()
 {
-    auto objLayer = GameManager::getInstance()->GetObjectLayer();
     auto dir = getContentSize().width / 2;
     if (m_Owner->GetTeam() == Player::TEAM_B)
     {
@@ -64,11 +64,16 @@ void Castle::CreateUnit()
     }
     auto pos = Vec2(getPositionX() + dir, getPositionY());
     auto delay = 0.1f;
-
+    
+    if (m_UnitQueue.empty())
+    {
+        Trigger::getInstance()->TurnChange();
+        return;
+    }
     while (!m_UnitQueue.empty())
     {
         auto unitType = m_UnitQueue.front();
-        GameManager::getInstance()->CallFuncAfter(delay, objLayer, &ObjectLayer::CreateUnit, pos, m_Owner, unitType);
+        GET_GM->CallFuncAfter(delay, GET_OBJ_LAYER, &ObjectLayer::CreateUnit, pos, m_Owner, unitType);
         delay += 0.1f;
         m_UnitQueue.pop();
     }

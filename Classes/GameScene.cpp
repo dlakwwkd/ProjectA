@@ -33,7 +33,7 @@ bool GameScene::init()
     }
     InitPlayers();
     InitDefInfoList();
-    GameManager::getInstance()->CallFuncAfter(this, &GameScene::InitGameState);
+    GET_GM->CallFuncAfter(this, &GameScene::InitGameState);
     return true;
 }
 
@@ -50,12 +50,12 @@ void GameScene::InitPlayers()
     m_Player = Player::create();
     m_Player->SetType(Player::PT_HUMAN);
     m_Player->SetTeam(Player::TEAM_A);
-    m_Player->SetState(Player::STATE_PREPARE);
+    m_Player->SetState(Player::PS_PREPARE);
 
     m_Enemy = Player::create();
     m_Enemy->SetType(Player::PT_COMPUTER);
     m_Enemy->SetTeam(Player::TEAM_B);
-    m_Enemy->SetState(Player::STATE_DEFENCE);
+    m_Enemy->SetState(Player::PS_DEFENCE);
 
     CC_SAFE_RETAIN(m_Player);
     CC_SAFE_RETAIN(m_Enemy);
@@ -68,7 +68,7 @@ void GameScene::InitDefInfoList()
     info.m_CurHp = info.m_MaxHp = 100;
     info.m_Damage = 10;
     info.m_AttackRange = 100.0f;
-    info.m_AttackSpeed = 1.0f;
+    info.m_AttackCoolTime = 1.0f;
     info.m_MoveSpeed = 200.0f;
     m_Player->PushDefInfo(Player::UNIT_A, info);
     m_Enemy->PushDefInfo(Player::UNIT_A, info);
@@ -81,8 +81,8 @@ void GameScene::InitDefInfoList()
 
 void GameScene::InitGameState()
 {
-    auto objLayer = GameManager::getInstance()->GetObjectLayer();
-    auto mapLayer = GameManager::getInstance()->GetMapLayer();
+    auto objLayer = GET_OBJ_LAYER;
+    auto mapLayer = GET_MAP_LAYER;
     auto mapImage = static_cast<Sprite*>(mapLayer->getChildByName(SPRITE_MAP_IMAGE));
     auto mapSize = mapImage->getContentSize();
     auto createPos1 = Vec2(mapSize.width / 8, mapLayer->GetGroundHeight());

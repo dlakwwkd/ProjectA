@@ -1,6 +1,7 @@
 ﻿#include "Trigger.h"
 #include "GameManager.h"
 #include "Player.h"
+#include "UILayer.h"
 
 USING_NS_CC;
 
@@ -43,6 +44,7 @@ void Trigger::GameStart()
 
 void Trigger::GameOver(Player* losePlayer)
 {
+    Director::getInstance()->popScene();
     /*
         todo: 게임결과씬 Push
     */
@@ -57,13 +59,14 @@ void Trigger::TurnChange()
     case Trigger::TURN_B_CUSTOM: TurnStartBA(); break;
     case Trigger::TURN_B_ATTACK: TurnStartAC(); break;
     }
+    GET_UI_LAYER->UpdateTurnLabel();
 }
 
 void Trigger::TurnStartAC()
 {
     m_NowTurn = TURN_A_CUSTOM;
 
-    auto gameScene = GameManager::getInstance()->GetGameScene();
+    auto gameScene = GET_GAME_SCENE;
     gameScene->GetPlayer()->TurnStartAC();
     gameScene->GetEnemy()->TurnStartAC();
 }
@@ -72,7 +75,7 @@ void Trigger::TurnStartAA()
 {
     m_NowTurn = TURN_A_ATTACK;
 
-    auto gameScene = GameManager::getInstance()->GetGameScene();
+    auto gameScene = GET_GAME_SCENE;
     gameScene->GetPlayer()->TurnStartAA();
     gameScene->GetEnemy()->TurnStartAA();
 }
@@ -81,7 +84,7 @@ void Trigger::TurnStartBC()
 {
     m_NowTurn = TURN_B_CUSTOM;
 
-    auto gameScene = GameManager::getInstance()->GetGameScene();
+    auto gameScene = GET_GAME_SCENE;
     gameScene->GetPlayer()->TurnStartBC();
     gameScene->GetEnemy()->TurnStartBC();
 }
@@ -90,7 +93,7 @@ void Trigger::TurnStartBA()
 {
     m_NowTurn = TURN_B_ATTACK;
 
-    auto gameScene = GameManager::getInstance()->GetGameScene();
+    auto gameScene = GET_GAME_SCENE;
     gameScene->GetPlayer()->TurnStartBA();
     gameScene->GetEnemy()->TurnStartBA();
 }

@@ -24,10 +24,10 @@ public:
     };
     enum State
     {
-        STATE_NONE,
-        STATE_PREPARE,
-        STATE_ATTACK,
-        STATE_DEFENCE,
+        PS_NONE,
+        PS_PREPARE,
+        PS_ATTACK,
+        PS_DEFENCE,
     };
     enum DefInfoList
     {
@@ -76,7 +76,7 @@ protected:
     Castle* m_MyCastle = nullptr;
     Type    m_Type = PT_NONE;
     Team    m_Team = TEAM_NONE;
-    State   m_State = STATE_NONE;
+    State   m_State = PS_NONE;
     int     m_Gold = 0;
     int     m_Income = 0;
 

@@ -19,15 +19,22 @@ namespace custom
             OBJ_STRUCTURE   = 0x08, // 01000
             OBJ_MISSILE     = 0x10, // 10000
         };
+        enum AttackType
+        {
+            AT_NONE,
+            AT_MELEE,
+            AT_RANGE,
+        };
         struct DefInfo
         {
             std::string m_ImageName = "";
+            AttackType  m_AttackType = AT_NONE;
             int         m_MaxHp = 0;
             int         m_CurHp = 0;
             int         m_Damage = 0;
-            float       m_AttackRange = 0;
-            float       m_AttackSpeed = 0;
             float       m_MoveSpeed = 0;
+            float       m_AttackRange = 0;
+            float       m_AttackCoolTime = 0;
         };
     public:
         virtual bool init();
@@ -51,6 +58,8 @@ namespace custom
         Player* m_Owner = nullptr;
         DefInfo m_DefInfo;
         bool    m_Alive = true;
+
+        Object* m_Target = nullptr;
     };
 }
 

@@ -13,6 +13,8 @@ public:
     void CreateUnit(cocos2d::Ref* sender, Player::DefInfoList type);
     void TurnOver(cocos2d::Ref* sender);
     void OutGame(cocos2d::Ref* sender);
+
+    void UpdateTurnLabel();
 };
 
 #endif  // __UI_LAYER_H__

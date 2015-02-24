@@ -75,7 +75,21 @@ void UILayer::CreateUnit(Ref* sender, Player::DefInfoList type)
 
 void UILayer::TurnOver(Ref* sender)
 {
-    Trigger::getInstance()->TurnChange();
+    switch (Trigger::getInstance()->GetNowTurn())
+    {
+    case Trigger::TURN_A_CUSTOM: Trigger::getInstance()->TurnChange();  break;
+    case Trigger::TURN_B_CUSTOM: Trigger::getInstance()->TurnChange();  break;
+    }
+}
+
+void UILayer::OutGame(Ref* sender)
+{
+    Director::getInstance()->popScene();
+}
+
+
+void UILayer::UpdateTurnLabel()
+{
     auto label = static_cast<Label*>(this->getChildByName(LABEL_TURN));
     if (label)
     {
@@ -89,9 +103,4 @@ void UILayer::TurnOver(Ref* sender)
         }
         label->setString(string);
     }
-}
-
-void UILayer::OutGame(Ref* sender)
-{
-    Director::getInstance()->popScene();
 }

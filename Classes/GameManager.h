@@ -10,6 +10,14 @@
 #include "TouchLayer.h"
 #include "TextDefine.h"
 
+#define GET_GM          GameManager::getInstance()
+#define GET_GAME_SCENE  GameManager::getInstance()->GetGameScene()
+#define GET_PHY_LAYER   GameManager::getInstance()->GetPhysicsLayer()
+#define GET_UI_LAYER    GameManager::getInstance()->GetUILayer()
+#define GET_OBJ_LAYER   GameManager::getInstance()->GetObjectLayer()
+#define GET_MAP_LAYER   GameManager::getInstance()->GetMapLayer()
+#define GET_TOUCH_LAYER GameManager::getInstance()->GetTouchLayer()
+
 class GameManager : public cocos2d::Ref
 {
 public:

@@ -42,9 +42,5 @@ void custom::Object::Damaged(int damage)
 void custom::Object::Death()
 {
     m_Alive = false;
-    auto objLayer = GameManager::getInstance()->GetObjectLayer();
-    if (objLayer)
-    {
-        GameManager::getInstance()->CallFuncAfter(1.0f, objLayer, &ObjectLayer::removeChild, this, true);
-    }
+    GET_GM->CallFuncAfter(1.0f, GET_OBJ_LAYER, &ObjectLayer::removeChild, this, true);
 }
